@@ -21,9 +21,6 @@ logs/
 out/
 !.next/cache
 
-# Tailwind CSS
-*.css
-
 # Production
 build/
 dist/

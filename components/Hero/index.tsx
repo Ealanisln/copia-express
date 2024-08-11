@@ -16,7 +16,7 @@ const Hero = () => {
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
             <div className=" md:w-1/2">
               <h4 className="mb-4.5 text-lg font-medium text-black dark:text-white">
-              ¡Bienvenidos a Copia Express León!
+              ¡Bienvenido a Copia Express León!
               </h4>
               <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
               Más de 20 años de experiencia en copiado e impresión digital de{" "}
@@ -56,13 +56,13 @@ const Hero = () => {
                 <div className=" relative aspect-[700/444] w-full">
                   <Image
                     className="shadow-solid-l dark:hidden"
-                    src="/images/hero/hero-light.svg"
+                    src="/images/hero/hero-light.png"
                     alt="Hero"
                     fill
                   />
                   <Image
                     className="hidden shadow-solid-l dark:block"
-                    src="/images/hero/hero-dark.svg"
+                    src="/images/hero/hero-dark.png"
                     alt="Hero"
                     fill
                   />

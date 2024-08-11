@@ -158,7 +158,7 @@ const Header = () => {
               href="https://github.com/NextJSTemplates/solid-nextjs"
               className="text-regular font-medium text-waterloo hover:text-primary"
             >
-              GitHub Repo 🌟
+              Visita nuestro Facebook 🌟
             </Link>
 
             <Link

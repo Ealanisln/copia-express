@@ -155,14 +155,14 @@ const Header = () => {
             <ThemeToggler />
 
             <Link
-              href="https://github.com/NextJSTemplates/solid-nextjs"
+              href="https://www.facebook.com/copiaexpressleon"
               className="text-regular font-medium text-waterloo hover:text-primary"
             >
               Visita nuestro Facebook 🌟
             </Link>
 
             <Link
-              href="https://nextjstemplates.com/templates/solid"
+              href="https://api.whatsapp.com/send?phone=5214772711752&text=%C2%A1Hola!%20Deseo%20recibir%20mayor%20informaci%C3%B3n%20sobre%20sus%20servicios.%20"
               className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
             >
               Escríbenos un Whatsapp

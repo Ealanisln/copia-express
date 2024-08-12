@@ -3,28 +3,29 @@ import { FeatureTab } from "@/types/featureTab";
 const featuresTabData: FeatureTab[] = [
   {
     id: "tabOne",
-    title: "Solid Has Neat & Clean User Interface.",
-    desc1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies lacus non fermentum ultrices. Fusce consectetur le.`,
-    desc2: `    Nam id eleifend dui, id iaculis purus. Etiam lobortis neque nec finibus sagittis. Nulla ligula nunc egestas ut.`,
+    title: "Imprime tus Tabloides con Alta Calidad",
+    desc1: `Te invitamos a imprimir tus tabloides con nosotros. Ofrecemos alta calidad en color y, lo mejor de todo, precios muy accesibles.`,
+    desc2: `Garantizamos un acabado profesional en cada impresión, con opciones de personalización para satisfacer tus necesidades.`,
     image: "/images/features/features-light-01.png",
     imageDark: "/images/features/features-dark-01.svg",
   },
   {
     id: "tabTwo",
-    title: "Ready to Use Pages You Need for a SaaS Business.",
-    desc1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies lacus non fermentum ultrices. Fusce consectetur le.`,
-    desc2: `    Nam id eleifend dui, id iaculis purus. Etiam lobortis neque nec finibus sagittis. Nulla ligula nunc egestas ut.`,
+    title: "Imprime tu Tesis con Nosotros",
+    desc1: `Te ofrecemos calidad de impresión en blanco y negro o color para tu tesis. Aprovecha nuestros descuentos por mayoreo y ahorra tiempo y dinero.`,
+    desc2: `Anticipa la impresión de tu tesis, ya que estos trabajos requieren un proceso más detallado, especialmente por el cosido o pegado. Estamos aquí para ayudarte a entregar tus trabajos a tiempo.`,
     image: "/images/features/features-light-01.png",
     imageDark: "/images/features/features-dark-01.svg",
   },
   {
     id: "tabThree",
-    title: "Functional Blog, DB, Auth and Many More",
-    desc1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ultricies lacus non fermentum ultrices. Fusce consectetur le.`,
-    desc2: `Nam id eleifend dui, id iaculis purus. Etiam lobortis neque nec finibus sagittis. Nulla ligula nunc egestas ut.`,
+    title: "Impresión de Volantes Personalizados",
+    desc1: `Ofrecemos impresión de volantes en 1/2 carta, 1/4 de carta o el tamaño que elijas, en color o blanco y negro.`,
+    desc2: `Imprime en papel bond o couche delgado con calidad garantizada en cada impresión. Personaliza tus volantes según tus necesidades.`,
     image: "/images/features/features-light-01.png",
     imageDark: "/images/features/features-dark-01.svg",
   },
 ];
+
 
 export default featuresTabData;

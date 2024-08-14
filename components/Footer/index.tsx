@@ -54,12 +54,12 @@ const Footer = () => {
                 <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
                   contacto
                 </p>
-                <a
-                  href="#"
+                <Link
+                  href="mailto:copiaexpressleon@outlook.com"
                   className="text-itemtitle font-medium text-black dark:text-white"
                 >
                   copiaexpressleon@outlook.com
-                </a>
+                </Link>
               </motion.div>
 
               <div className="flex w-full flex-col gap-8 md:flex-row md:gap-0 lg:w-2/3 xl:w-7/12">
@@ -102,22 +102,7 @@ const Footer = () => {
                         Servicios
                       </a>
                     </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="mb-3 inline-block hover:text-primary"
-                      >
-                        Careers
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="mb-3 inline-block hover:text-primary"
-                      >
-                        Pricing
-                      </a>
-                    </li>
+                   
                   </ul>
                 </motion.div>
 
@@ -146,7 +131,7 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a
-                        href="#"
+                        href="/acerca"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Nuestra compañia
@@ -154,7 +139,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/contacto"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Escríbenos

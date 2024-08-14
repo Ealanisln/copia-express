@@ -1,20 +1,48 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 const Contact = () => {
-  /**
-   * Source: https://www.joshwcomeau.com/react/the-perils-of-rehydration/
-   * Reason: To fix rehydration error
-   */
   const [hasMounted, setHasMounted] = React.useState(false);
+  const [formStatus, setFormStatus] = useState({ message: "", isError: false });
+
   React.useEffect(() => {
     setHasMounted(true);
   }, []);
+
   if (!hasMounted) {
     return null;
   }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    try {
+      const result = await sendEmail(formData);
+      if (result.success) {
+        setFormStatus({
+          message: "Tú mensahe ha sido enviado satisfactoriamente!",
+          isError: false,
+        });
+        event.target.reset();
+      } else {
+        setFormStatus({
+          message:
+            result.error ||
+            "Oops, hubo un error al enviar el mensaje. Intenta mas tarde.",
+          isError: true,
+        });
+      }
+    } catch (error) {
+      setFormStatus({
+        message: "Ocurrió un error desconocido,",
+        isError: true,
+      });
+    }
+  };
 
   return (
     <>
@@ -44,7 +72,6 @@ const Contact = () => {
                   opacity: 0,
                   y: -20,
                 },
-
                 visible: {
                   opacity: 1,
                   y: 0,
@@ -60,33 +87,45 @@ const Contact = () => {
                 Envía un mensaje
               </h2>
 
-              <form
-                action="https://formbold.com/s/unique_form_id"
-                method="POST"
-              >
+              {formStatus.message && (
+                <div
+                  className={`mb-4 p-4 ${formStatus.isError ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"} rounded`}
+                >
+                  {formStatus.message}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit}>
                 <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                   <input
                     type="text"
+                    name="name"
                     placeholder="Nombre completo"
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
+                    required
                   />
 
                   <input
                     type="email"
+                    name="email"
                     placeholder="Dirección de correo electrónico"
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
+                    required
                   />
                 </div>
 
                 <div className="mb-12.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                   <input
                     type="text"
+                    name="subject"
                     placeholder="Asunto"
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
+                    required
                   />
 
                   <input
-                    type="text"
+                    type="tel"
+                    name="phone"
                     placeholder="Número de teléfono"
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
                   />
@@ -94,9 +133,11 @@ const Contact = () => {
 
                 <div className="mb-11.5 flex">
                   <textarea
+                    name="message"
                     placeholder="Mensaje"
                     rows={4}
                     className="w-full border-b border-stroke bg-transparent focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                    required
                   ></textarea>
                 </div>
 
@@ -106,6 +147,7 @@ const Contact = () => {
                       id="default-checkbox"
                       type="checkbox"
                       className="peer sr-only"
+                      required
                     />
                     <span className="border-gray-300 bg-gray-100 text-blue-600 dark:border-gray-600 dark:bg-gray-700 group mt-2 flex h-5 min-w-[20px] items-center justify-center rounded peer-checked:bg-primary">
                       <svg
@@ -128,11 +170,14 @@ const Contact = () => {
                       htmlFor="default-checkbox"
                       className="flex max-w-[425px] cursor-pointer select-none pl-5"
                     >
-                      Al marcar esta casilla, aceptas el uso de nuestros términos de "Formulario" y el consentimiento para el uso de cookies en el navegador.
+                      Al marcar esta casilla, aceptas el uso de nuestros
+                      términos de "Formulario" y el consentimiento para el uso
+                      de cookies en el navegador.
                     </label>
                   </div>
 
                   <button
+                    type="submit"
                     aria-label="enviar mensaje"
                     className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark"
                   >
@@ -181,7 +226,9 @@ const Contact = () => {
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Nuestra Ubicación
                 </h3>
-                <p>Blvd Adolfo López Mateos #432 PTE, Col.Obregón. León, Mexico, CP 37320
+                <p>
+                  Blvd Adolfo López Mateos #432 PTE, Col.Obregón. León, Mexico,
+                  CP 37320
                 </p>
               </div>
               <div className="5 mb-7">
